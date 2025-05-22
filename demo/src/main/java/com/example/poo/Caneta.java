@@ -1,11 +1,13 @@
 package com.example.poo;
 
 public class Caneta {
-    String modelo;
-    String cor;
-    float ponta;
-    int carga;
-    boolean tampada;
+    public String modelo;
+    public String cor;
+    private float ponta;
+    protected int carga;
+    private boolean tampada;
+
+
     void status () {
         System.out.println("____________Caneta______________");
         System.out.println("Modelo: "+ this.modelo);
@@ -17,17 +19,19 @@ public class Caneta {
         
     }
 
-    void rabiscar () {
+    public void rabiscar (String mensagem) {
         if (this.tampada == true){
             System.out.println("Destampe a caneta para proseguir.");
-        }else{
-            System.out.println("Escreveu na tela.");
+        }if (this.tampada == false) {
+            System.out.println("Escreveu na tela: "+mensagem);
         }
     }
-    void tampar() {
+
+    //Esses metodos dão acesso ao atibuto tampada que é privado
+    public void tampar() {
         this.tampada = true;
     }
-    void destampar() {
+    public void destampar() {
         this.tampada = false;
     }
 
